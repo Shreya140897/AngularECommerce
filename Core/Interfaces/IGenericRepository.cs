@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Specifications;
 using ECommerceAPI.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace Core.Interfaces
     {
         Task<T> GetByIdAsync(int id);
         Task<IReadOnlyList<T>> GetAllListAsync();
-       
+        Task<T> GetEntityWithSpec(ISpecification<T> spec);
+        Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec);
+
     }
 }
