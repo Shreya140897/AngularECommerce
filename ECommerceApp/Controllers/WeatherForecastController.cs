@@ -4,6 +4,7 @@ namespace ECommerceApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)] // removes this from swagger
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
