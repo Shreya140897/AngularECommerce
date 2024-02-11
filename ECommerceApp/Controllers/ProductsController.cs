@@ -27,8 +27,8 @@ namespace ECommerceAPI.Controllers
             this._mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts(string sort) {
-            var spec= new ProductWithTypesAndBrandsSpecification(sort);
+        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts(string sort ,int?brandId,int?typeId) {
+            var spec= new ProductWithTypesAndBrandsSpecification(sort,brandId,typeId);
             var products = await _productRepo.ListAsync(spec);
             return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products));
         }
